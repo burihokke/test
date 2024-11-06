@@ -1,0 +1,64 @@
+﻿<Window
+    x:Class="WpfApp5.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp5"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WpfApp5.ViewModels"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <!--  テキスト入力  -->
+            <TextBox
+                Width="200"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding InputText.Value, UpdateSourceTrigger=PropertyChanged}" />
+            <!--  入力内容の表示  -->
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="16"
+                Text="{Binding InputText.Value}" />
+
+            <!--  数値1の入力  -->
+            <TextBox
+                Width="200"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding Number1.Value, UpdateSourceTrigger=PropertyChanged}" />
+            <!--  数値2の入力  -->
+            <TextBox
+                Width="200"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding Number2.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+            <!--  合計の表示  -->
+            <TextBlock FontSize="16" Text="Sum:" />
+            <TextBlock
+                Margin="0,10,0,10"
+                HorizontalAlignment="Center"
+                FontSize="24"
+                Text="{Binding Sum.Value}" />
+
+
+            <!--  カウント表示  -->
+            <TextBlock
+                Margin="0,10,0,10"
+                HorizontalAlignment="Center"
+                FontSize="24"
+                Text="{Binding Count.Value}" />
+
+            <!--  カウントアップボタン  -->
+            <Button
+                Width="100"
+                Command="{Binding IncrementCountCommand}"
+                Content="Increment" />
+        </StackPanel>
+    </Grid>
+</Window>
