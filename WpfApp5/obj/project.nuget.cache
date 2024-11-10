@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "QEB90ynIbx4=",
+  "dgSpecHash": "HEYNjhxAKYA=",
   "success": true,
   "projectFilePath": "C:\\Users\\mmiss\\source\\repos\\WpfApp5\\WpfApp5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mmiss\\.nuget\\packages\\communitytoolkit.mvvm\\8.3.2\\communitytoolkit.mvvm.8.3.2.nupkg.sha512",
+    "C:\\Users\\mmiss\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
     "C:\\Users\\mmiss\\.nuget\\packages\\reactiveproperty\\9.6.0\\reactiveproperty.9.6.0.nupkg.sha512",
     "C:\\Users\\mmiss\\.nuget\\packages\\reactiveproperty.core\\9.6.0\\reactiveproperty.core.9.6.0.nupkg.sha512",
     "C:\\Users\\mmiss\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\mmiss\\.nuget\\packages\\system.drawing.common\\8.0.10\\system.drawing.common.8.0.10.nupkg.sha512",
     "C:\\Users\\mmiss\\.nuget\\packages\\system.reactive\\6.0.1\\system.reactive.6.0.1.nupkg.sha512"
   ],
   "logs": []

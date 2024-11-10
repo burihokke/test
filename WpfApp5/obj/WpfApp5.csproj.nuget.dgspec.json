@@ -52,6 +52,10 @@
             "ReactiveProperty": {
               "target": "Package",
               "version": "[9.6.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.10, )"
             }
           },
           "imports": [

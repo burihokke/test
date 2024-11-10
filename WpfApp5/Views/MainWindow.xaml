@@ -11,54 +11,111 @@
     Height="450"
     mc:Ignorable="d">
     <Window.DataContext>
-        <vm:MainViewModel />
+        <vm:NewViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="BorderBase" TargetType="Border">
+            <Setter Property="BorderThickness" Value="0.5" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+        </Style>
+        <Style x:Key="TextBase" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style x:Key="ImageBase" TargetType="Image">
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-
-            <!--  テキスト入力  -->
-            <TextBox
-                Width="200"
-                Style="{StaticResource RoundedTextBoxStyle}"
-                Text="{Binding InputText.Value, UpdateSourceTrigger=PropertyChanged}" />
-            <!--  入力内容の表示  -->
-            <TextBlock
-                HorizontalAlignment="Center"
-                FontSize="16"
-                Text="{Binding InputText.Value}" />
-
-            <!--  数値1の入力  -->
-            <TextBox
-                Width="200"
-                Style="{StaticResource RoundedTextBoxStyle}"
-                Text="{Binding Number1.Value, UpdateSourceTrigger=PropertyChanged}" />
-            <!--  数値2の入力  -->
-            <TextBox
-                Width="200"
-                Style="{StaticResource RoundedTextBoxStyle}"
-                Text="{Binding Number2.Value, UpdateSourceTrigger=PropertyChanged}" />
-
-            <!--  合計の表示  -->
-            <TextBlock FontSize="16" Text="Sum:" />
-            <TextBlock
-                Margin="0,10,0,10"
-                HorizontalAlignment="Center"
-                FontSize="24"
-                Text="{Binding Sum.Value}" />
-
-
-            <!--  カウント表示  -->
-            <TextBlock
-                Margin="0,10,0,10"
-                HorizontalAlignment="Center"
-                FontSize="24"
-                Text="{Binding Count.Value}" />
-
-            <!--  カウントアップボタン  -->
-            <Button
-                Width="100"
-                Command="{Binding IncrementCountCommand}"
-                Content="Increment" />
-        </StackPanel>
+        <!--#region フォーム全体のテーブル-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <!--#region 機能一覧-->
+            <Grid Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!--#region 機能1-->
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{StaticResource BorderBase}">
+                        <Label Content="{Binding ExcelService.ServiceName.Value}" Style="{StaticResource TextBase}" />
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Style="{StaticResource BorderBase}">
+                        <Image Source="{Binding ExcelService.StatusImage.Value}" Style="{StaticResource ImageBase}" />
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Style="{StaticResource BorderBase}">
+                        <Label Content="{Binding ExcelService.Result.Value}" Style="{StaticResource TextBase}" />
+                    </Border>
+                    <!--#endregion-->
+                    <!--#region 機能2-->
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource BorderBase}">
+                        <Label Content="{Binding ErrorService.ServiceName.Value}" Style="{StaticResource TextBase}" />
+                    </Border>
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource BorderBase}">
+                        <Image Source="{Binding ErrorService.StatusImage.Value}" Style="{StaticResource ImageBase}" />
+                    </Border>
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Style="{StaticResource BorderBase}">
+                        <Label Content="{Binding ErrorService.Result.Value}" Style="{StaticResource TextBase}" />
+                    </Border>
+                    <!--#endregion-->
+                    <!--#region 機能3-->
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource BorderBase}">
+                        <Label Style="{StaticResource TextBase}">piyo</Label>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Style="{StaticResource BorderBase}">
+                        <Image Style="{StaticResource ImageBase}" />
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Style="{StaticResource BorderBase}">
+                        <Label Style="{StaticResource TextBase}">実行結果を表示</Label>
+                    </Border>
+                    <!--#endregion-->
+                </Grid>
+            </Grid>
+            <!--#endregion-->
+            <!--#region 実行ボタン-->
+            <Grid Grid.Row="1">
+                <Button Command="{Binding CommandTest}">開始</Button>
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+        <!--#endregion-->
     </Grid>
 </Window>
