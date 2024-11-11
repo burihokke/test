@@ -10,6 +10,8 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using WpfApp5.ViewModels.window;
 
 namespace WpfApp5.ViewModels
 {
@@ -35,6 +37,8 @@ namespace WpfApp5.ViewModels
 		/// コマンド：テスト
 		/// </summary>
 		public IRelayCommand CommandTest { get; }
+
+		public IRelayCommand CommandClose { get; }
 		#endregion
 
 		#region コンストラクタ

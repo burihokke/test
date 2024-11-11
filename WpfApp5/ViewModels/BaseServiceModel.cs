@@ -36,6 +36,7 @@ namespace WpfApp5.ViewModels
         {
             None,
             Processing,
+			Pause,
             Success,
             Error
         }
@@ -62,8 +63,8 @@ namespace WpfApp5.ViewModels
 		/// <returns>ステータス画像</returns>
 		public BitmapImage ChangeStatus(Statuses status)
 		{
-            byte[] imageData = GetStautsImageData(status);
-            BitmapImage bitmap = ImageService.ConvertByteToBitmapImage(imageData);
+			Uri imageUri = GetStatusImageUri(status);
+            BitmapImage bitmap = ImageService.ConvertUriToBitmapImage(imageUri);
 			return bitmap;
 		}
 		#endregion
@@ -73,27 +74,30 @@ namespace WpfApp5.ViewModels
 		/// ステータス画像データを取得
 		/// </summary>
 		/// <param name="status">ステータス</param>
-		/// <returns>画像データ</returns>
-		private byte[] GetStautsImageData(Statuses status)
+		/// <returns>画像データURI</returns>
+		private Uri GetStatusImageUri(Statuses status)
 		{
-			byte[] imageData;
+			string fileName;
 			switch (status)
 			{
 				case Statuses.Processing:
-					imageData = Resources.loading;
+					fileName = "loading.gif";
+					break;
+				case Statuses.Pause:
+					fileName = "StatusPaused.png";
 					break;
 				case Statuses.Success:
-					imageData = Resources.StatusOK;
+					fileName = "StatusOK.png";
 					break;
 				case Statuses.Error:
-					imageData = Resources.StatusError;
+					fileName = "StatusError.png";
 					break;
 				default:
-					imageData = Resources.StatusPaused;
+					fileName = "StatusExcludedOutline.png";
 					break;
 			}
 
-            return imageData;
+			return new Uri($"pack://application:,,,/Resources/{fileName}", UriKind.Absolute);
 		}
 		#endregion
 

@@ -25,7 +25,7 @@ namespace WpfApp5.ViewModels
 		public void Execute()
         {
             this.Result.Value = "終わった";
-            this.StatusImage.Value = ChangeStatus(Statuses.Success);
+            this.StatusImage.Value = ChangeStatus(Statuses.Processing);
         }
 		#endregion
 	}

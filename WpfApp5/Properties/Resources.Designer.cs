@@ -63,9 +63,9 @@ namespace WpfApp5.Properties {
         /// <summary>
         ///   型 System.Byte[] のローカライズされたリソースを検索します。
         /// </summary>
-        internal static byte[] loading {
+        internal static byte[] Loading {
             get {
-                object obj = ResourceManager.GetObject("loading", resourceCulture);
+                object obj = ResourceManager.GetObject("Loading", resourceCulture);
                 return ((byte[])(obj));
             }
         }

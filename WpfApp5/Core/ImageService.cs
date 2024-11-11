@@ -11,22 +11,18 @@ namespace WpfApp5.Core
     class ImageService
 	{
 		/// <summary>
-		/// イメージのバイトからビットマップに変換
+		/// イメージのURIからビットマップに変換
 		/// </summary>
-		/// <param name="imageData">画像データ</param>
+		/// <param name="uri">画像データURI</param>
 		/// <returns>ビットマップイメージ</returns>
-		public static BitmapImage ConvertByteToBitmapImage(byte[] imageData)
+		public static BitmapImage ConvertUriToBitmapImage(Uri uri)
 		{
-			using (var stream = new MemoryStream(imageData))
-			{
-				var bitmapImage = new BitmapImage();
-				bitmapImage.BeginInit();
-				bitmapImage.StreamSource = stream;
-				bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-				bitmapImage.EndInit();
+			var bitmapImage = new BitmapImage();
+			bitmapImage.BeginInit();
+			bitmapImage.UriSource = uri;
+			bitmapImage.EndInit();
 
-				return bitmapImage;
-			}
+			return bitmapImage;
 		}
 	}
 }
